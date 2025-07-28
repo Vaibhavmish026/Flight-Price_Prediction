@@ -1,9 +1,13 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
-<div>
-    <h1> This is a flight price prediction model !! </h1>
-    <a href="{{ url_for('predict')}}"> Click Here! </a>
+<div class="container mt-5 text-center">
+    <div class="card shadow p-4 rounded-4">
+        <h1 class="mb-4 text-primary">✈️ Flight Price Prediction</h1>
+        <p class="lead">Predict the estimated price of your flight based on your travel details.</p>
+        <a href="{{ url_for('predict') }}" class="btn btn-lg btn-success mt-3">
+            Predict Now
+        </a>
+    </div>
 </div>
 {% endblock content %}

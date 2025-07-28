@@ -16,6 +16,7 @@ def home():
 @app.route('/predict', methods =['GET','POST'])
 def predict():
     form = InputForm()
+    message=None
     if form.validate_on_submit():
         x_new = pd.DataFrame(dict(
             airline=[form.airline.data],
@@ -30,8 +31,8 @@ def predict():
         ))
         prediction=model.predict(x_new)[0]
         message= f"The predicted price is {prediction:,.0f} for your journey"
-    else:
-        message=f"OOPs something went wrong"
+    
+       
     return render_template("predict.html", title ="Predict" , form=form , output = message)
 
 if(__name__=="__main__"):
